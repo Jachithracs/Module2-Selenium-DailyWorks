@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumExample", "SeleniumExample\SeleniumExample.csproj", "{C238BE75-2836-4C43-B6DE-734E2840A5EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumExample", "SeleniumExample\SeleniumExample.csproj", "{C238BE75-2836-4C43-B6DE-734E2840A5EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumNunitExample", "SeleniumNunitExample\SeleniumNunitExample.csproj", "{EE09C078-AD76-4E48-966A-F122A02000B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumNunitExample", "SeleniumNunitExample\SeleniumNunitExample.csproj", "{EE09C078-AD76-4E48-966A-F122A02000B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment_1-14-11-2023", "Assignment_1-14-11-2023\Assignment_1-14-11-2023.csproj", "{C97C6AC3-CE96-4B32-82AA-9FCAD07CD6A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment_2-14-11-2023", "Assignment_2-14-11-2023\Assignment_2-14-11-2023.csproj", "{DE3373BC-E500-4EE3-95EB-FDAF4F5724AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{EE09C078-AD76-4E48-966A-F122A02000B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE09C078-AD76-4E48-966A-F122A02000B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE09C078-AD76-4E48-966A-F122A02000B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C97C6AC3-CE96-4B32-82AA-9FCAD07CD6A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C97C6AC3-CE96-4B32-82AA-9FCAD07CD6A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C97C6AC3-CE96-4B32-82AA-9FCAD07CD6A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C97C6AC3-CE96-4B32-82AA-9FCAD07CD6A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE3373BC-E500-4EE3-95EB-FDAF4F5724AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE3373BC-E500-4EE3-95EB-FDAF4F5724AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE3373BC-E500-4EE3-95EB-FDAF4F5724AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE3373BC-E500-4EE3-95EB-FDAF4F5724AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
