@@ -73,5 +73,17 @@ namespace SeleniumNunitExample
         {
             driver.Quit();
         }
+        public void TakeScreenShot()
+        {
+            ITakesScreenshot screenshot = (ITakesScreenshot)driver;
+            Screenshot ss = screenshot.GetScreenshot();
+
+            string currdir = Directory.GetParent(@"../../../").FullName;
+            string filepath = currdir + "/Screenshots/ss_" + DateTime.Now.ToString("yyyymmdd_HHmmss") + ".png";
+            ss.SaveAsFile(filepath);
+
+            Console.WriteLine("SCREEN SHOT CAPTURED");
+
+        }
     }
 }

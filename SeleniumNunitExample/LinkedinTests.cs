@@ -47,6 +47,7 @@ namespace SeleniumNunitExample
             //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(3);
            // Thread.Sleep(1000);
         }
+        /*
         [Test]
         [Author("AAA", "AAA@fgh.com")]
         [Description("checked for InValid Login")]
@@ -65,6 +66,7 @@ namespace SeleniumNunitExample
 
             emailInput.SendKeys("abc@xyz.com");
             passwordInput.SendKeys("12345");
+            TakeScreenShot();
             ClearForm(emailInput);
             ClearForm(passwordInput); 
             emailInput.SendKeys("lkg@xyz.com");
@@ -78,17 +80,19 @@ namespace SeleniumNunitExample
             Thread.Sleep(1000);
 
         }
+        */
         void ClearForm(IWebElement element)
         {
             element.Clear();
         }
+        
 
         [Test]
         [Author("Jaya", "CS@fgh.com")]
         [Description("checked for InValid Login")]
         [Category("Regression Testing")]
         [TestCaseSource(nameof(InvalidLoginData))]
-        public void LoginTestWithvalidCred(string email,string pwd)
+        public void LoginTestWithInvalidCred(string email,string pwd)
         {
             DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver);
             fluentWait.Timeout = TimeSpan.FromSeconds(5);
@@ -101,10 +105,21 @@ namespace SeleniumNunitExample
 
             emailInput.SendKeys(email);
             passwordInput.SendKeys(pwd);
+
+            TakeScreenShot();
+
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", driver.FindElement(
+                By.XPath("//button[@type='submit']")));
+            Thread.Sleep(5000);
+
+            js.ExecuteScript("arguments[0].click();", driver.FindElement(
+                By.XPath("//button[@type='submit']")));
+            
             ClearForm(emailInput);
             ClearForm(passwordInput);
 
-            Thread.Sleep(TimeSpan.FromSeconds(5));
+            //Thread.Sleep(TimeSpan.FromSeconds(5));
         }
         static object[] InvalidLoginData()
         {
@@ -115,5 +130,6 @@ namespace SeleniumNunitExample
                 new object[] { "ukg@xyz.com", "123567" }
             };
         }
+        
     }
 }
