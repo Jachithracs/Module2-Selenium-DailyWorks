@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment_3_20-11-2023", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment_4-21-11-2023", "Assignment_4-21-11-2023\Assignment_4-21-11-2023.csproj", "{D6D80380-85F8-42FE-ABD1-45B1D7758886}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rediff", "Rediff\Rediff.csproj", "{EC47EE32-EEF9-4FDB-9C80-31AFC4474A32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{D6D80380-85F8-42FE-ABD1-45B1D7758886}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6D80380-85F8-42FE-ABD1-45B1D7758886}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6D80380-85F8-42FE-ABD1-45B1D7758886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC47EE32-EEF9-4FDB-9C80-31AFC4474A32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC47EE32-EEF9-4FDB-9C80-31AFC4474A32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC47EE32-EEF9-4FDB-9C80-31AFC4474A32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC47EE32-EEF9-4FDB-9C80-31AFC4474A32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
