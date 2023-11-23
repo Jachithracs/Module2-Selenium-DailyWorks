@@ -68,23 +68,18 @@ namespace BunnyCart.PageObjects
             LastNameInput?.SendKeys(lastName);
             EmailInput?.SendKeys(email);
 
-            ScrollIntoView(driver, PasswordInput); //modal.FindElement(By.Id("password"
+            CoreCodes.ScrollIntoView(driver, PasswordInput); //modal.FindElement(By.Id("password"
             PasswordInput?.SendKeys(pwd);
             ConfirmPasswordInput?.SendKeys(conpwd);
 
-            ScrollIntoView(driver,MobileNumberInput);//modal.FindElement(By.Id("mobilenumber"
+            CoreCodes.ScrollIntoView(driver,MobileNumberInput);//modal.FindElement(By.Id("mobilenumber"
             MobileNumberInput?.SendKeys(mbno);
             Thread.Sleep(1000);
             SignInButton?.Click();
         
 
         }
-        static void ScrollIntoView(IWebDriver driver, IWebElement element)
-        {
-            IJavaScriptExecutor js =(IJavaScriptExecutor)driver;
-            js.ExecuteScript("arguments[0].scrollIntoView(true);", element);
-
-        }
+        
 
         public SearchResultsPage TypeSearchInput(string searchtext)
         {
