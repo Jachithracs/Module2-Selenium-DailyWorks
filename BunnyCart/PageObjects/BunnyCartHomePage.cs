@@ -34,13 +34,13 @@ namespace BunnyCart.PageObjects
         [FindsBy(How = How.Id, Using = "lastname")]
         private IWebElement? LastNameInput { get; set; }
 
-        [FindsBy(How = How.Name, Using = "popup-email_address")]
+        [FindsBy(How = How.Name, Using = "email")]
         private IWebElement? EmailInput { get; set; }
 
         [FindsBy(How = How.Id, Using = "password")]
         private IWebElement? PasswordInput { get; set; }
 
-        [FindsBy(How = How.Id, Using = "password_confirmation")]
+        [FindsBy(How = How.Name, Using = "password_confirmation")]
         private IWebElement? ConfirmPasswordInput { get; set; }
 
         [FindsBy(How = How.Id, Using = "mobilenumber")]
@@ -62,17 +62,17 @@ namespace BunnyCart.PageObjects
         {
             IWebElement modal = new WebDriverWait(driver, TimeSpan.FromSeconds(10))
                 .Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(
-                    By.XPath("(//div[@class='modal-inner-wrap'])")));
+                    By.XPath("(//div[@class='modal-inner-wrap'])[position()=2]")));
 
             FirstNameInput?.SendKeys(firstName);
             LastNameInput?.SendKeys(lastName);
             EmailInput?.SendKeys(email);
 
-            ScrollIntoView(driver, modal.FindElement(By.Id("password")));
+            ScrollIntoView(driver, PasswordInput); //modal.FindElement(By.Id("password"
             PasswordInput?.SendKeys(pwd);
             ConfirmPasswordInput?.SendKeys(conpwd);
 
-            ScrollIntoView(driver, modal.FindElement(By.Id("mobilenumber")));
+            ScrollIntoView(driver,MobileNumberInput);//modal.FindElement(By.Id("mobilenumber"
             MobileNumberInput?.SendKeys(mbno);
             Thread.Sleep(1000);
             SignInButton?.Click();
@@ -84,6 +84,18 @@ namespace BunnyCart.PageObjects
             IJavaScriptExecutor js =(IJavaScriptExecutor)driver;
             js.ExecuteScript("arguments[0].scrollIntoView(true);", element);
 
+        }
+
+        public SearchResultsPage TypeSearchInput(string searchtext)
+        {
+            if(SearchInput== null)
+            {
+                throw new NoSuchElementException(nameof(SearchInput));
+
+            }
+            SearchInput.SendKeys(searchtext);
+            SearchInput.SendKeys(Keys.Enter);
+            return new SearchResultsPage(driver);
         }
     }
 }

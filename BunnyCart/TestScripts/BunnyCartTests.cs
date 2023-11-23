@@ -24,14 +24,14 @@ namespace BunnyCart.TestScripts
            
                 Assert.That(driver.FindElement(By.XPath("//div[@class='modal-inner-wrap']" +
                 "//following::h1[2]")).Text, Is.EqualTo("Create an Account"));
+                bchp.SignUp("John", "Doe", "john.doe@example.com", "12345", "12345", "9876543210");
 
-                  
             }
             catch (AssertionException ex)
             {
-                Console.WriteLine("Create Acc modal not present");
+                Console.WriteLine("Sign Up Failed");
             }
-            bchp.SignUp("John", "Doe", "john.doe@example.com", "12345", "12345", "9876543210");
+            
             
         }
 
