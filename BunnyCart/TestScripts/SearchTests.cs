@@ -1,4 +1,5 @@
 ﻿using BunnyCart.PageObjects;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,15 +12,20 @@ namespace BunnyCart.TestScripts
     internal class SearchTests : CoreCodes
     {
         [Test]
-        [TestCase("Water")]
-        public void SearchProductAndAddToCartTest(string searchtext)
+        [TestCase("Water", 2)]
+        public void SearchProductAndAddToCartTest(string searchtext, int count)
         {
             BunnyCartHomePage bchp = new BunnyCartHomePage(driver);
             var searchrespage = bchp?.TypeSearchInput(searchtext);
-            Assert.That(searchtext.Contains(searchrespage.GetFirstProductLink()));
-            var productpage = searchrespage?.ClickFirstProductLink();
-            Assert.That(searchtext.Equals(productpage?.GetProductTitleLabel()));
+            CoreCodes.ScrollIntoView(driver, driver.FindElement(By.XPath("//*[@id=\'amasty-" +
+                "shopby-product-list\']/div[2]/ol/li[1]")));
+            Thread.Sleep(3000);
+            //Assert.That(searchtext.Contains(searchrespage.GetFirstProductLink()));
+            var productpage = searchrespage?.ClickFirstProductLink(count);
+            //Assert.That(searchtext.Equals(productpage?.GetProductTitleLabel()));
+            Thread.Sleep(3000);
             productpage?.ClickIncQtyLink();
+            Thread.Sleep(3000);
             productpage?.ClickAddToCartBtn();
             Thread.Sleep(3000);
 

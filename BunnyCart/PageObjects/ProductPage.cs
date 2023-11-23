@@ -13,12 +13,12 @@ namespace BunnyCart.PageObjects
         IWebDriver? driver;
         public ProductPage(IWebDriver driver)
         {
-            this.driver = driver;
+            this.driver = driver ?? throw new ArgumentException(nameof(driver));
             PageFactory.InitElements(driver, this);
         }
 
         [FindsBy(How = How.XPath, Using = "//h1[@class='page-title']")]
-        private IWebElement? ProductTitleLabel { get; set; }
+        private IWebElement? ProductTitleLabel { get;  }
 
         [FindsBy(How = How.ClassName, Using = "qty-inc")]
         private IWebElement? IncQtyLink { get; set; }
