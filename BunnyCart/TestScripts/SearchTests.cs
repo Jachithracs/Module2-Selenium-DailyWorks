@@ -16,19 +16,18 @@ namespace BunnyCart.TestScripts
         public void SearchProductAndAddToCartTest(string searchtext, int count)
         {
             BunnyCartHomePage bchp = new BunnyCartHomePage(driver);
-            var searchrespage = bchp?.TypeSearchInput(searchtext);
-            CoreCodes.ScrollIntoView(driver, driver.FindElement(By.XPath("//*[@id=\'amasty-" +
-                "shopby-product-list\']/div[2]/ol/li[1]")));
+            var searchResultPage = bchp?.TypeSearchInput(searchtext);
+            CoreCodes.ScrollIntoView(driver, driver.FindElement(By.XPath("//*[@id=\'amasty-shopby-product-list\']/div[2]/ol/li[1]")));
+            //Assert.That(searchtext.Equals(searchResultPage?.GetFirstProductLink()));
             Thread.Sleep(3000);
-            //Assert.That(searchtext.Contains(searchrespage.GetFirstProductLink()));
-            var productpage = searchrespage?.ClickFirstProductLink(count);
-            //Assert.That(searchtext.Equals(productpage?.GetProductTitleLabel()));
+            var productPage = searchResultPage?.ClickFirstProductLink(count);
             Thread.Sleep(3000);
-            productpage?.ClickIncQtyLink();
+            //            Assert.That(searchtext.Equals(productPage?.GetProductTitleLabel()));
+            productPage?.ClickIncQtyLink();
             Thread.Sleep(3000);
-            productpage?.ClickAddToCartBtn();
-            Thread.Sleep(3000);
+            productPage?.ClickAddToCartBtn();
 
+            Thread.Sleep(5000);
         }
     }
 }

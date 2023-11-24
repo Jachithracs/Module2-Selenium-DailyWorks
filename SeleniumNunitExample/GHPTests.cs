@@ -26,14 +26,28 @@ namespace SeleniumNunitExample
         [Order(20)]
         public void GStest()
         {
-            IWebElement searchinputtextbox = driver.FindElement(By.Id("APjFqb"));
-            searchinputtextbox.SendKeys("hp laptop");
-            Thread.Sleep(2000);
-            //IWebElement gsbutton = driver.FindElement(By.Name("btnK"));
-            IWebElement gsbutton = driver.FindElement(By.ClassName("gNO89b"));
-            gsbutton.Click();
-            Assert.AreEqual("hp laptop - Google Search", driver.Title);
-            Console.WriteLine("Google Search Test - Pass");
+            string? currDir = Directory.GetParent(@"../../../").FullName;
+            string? excelFilePath = currDir + "\\InputData.xlsx";
+            Console.WriteLine(excelFilePath);
+
+            List<ExcelData> excelDataList = ExcelUtils.ReadExcelData(excelFilePath);
+            foreach (var excelData in excelDataList)
+            {
+                Console.WriteLine($"Text : {excelData.SearchText}");
+
+                IWebElement searchinputtextbox = driver.FindElement(By.Id("APjFqb"));
+                searchinputtextbox.SendKeys(excelData.SearchText);
+                Thread.Sleep(2000);
+                //IWebElement gsbutton = driver.FindElement(By.Name("btnK"));
+                IWebElement gsbutton = driver.FindElement(By.ClassName("gNO89b"));
+                gsbutton.Click();
+                //Assert.AreEqual("hp laptop - Google Search", driver.Title);
+                Assert.That(driver.Title, Is.EqualTo(excelData.SearchText + "- Google Search"));
+                Console.WriteLine("Google Search Test - Pass");
+
+            }
+
+           
         }
         [Test]
         public void CheckAllLinksStatusTest()
