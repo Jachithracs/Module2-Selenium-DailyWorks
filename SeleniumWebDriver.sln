@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment-5_22-11-2023", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BunnyCart", "BunnyCart\BunnyCart.csproj", "{5C33FF2C-48AC-4873-9F4E-FE8094C57E37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naaptol", "Naaptol\Naaptol.csproj", "{89FE5932-0030-40F8-B1C2-5C838125F1B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{5C33FF2C-48AC-4873-9F4E-FE8094C57E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C33FF2C-48AC-4873-9F4E-FE8094C57E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C33FF2C-48AC-4873-9F4E-FE8094C57E37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89FE5932-0030-40F8-B1C2-5C838125F1B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89FE5932-0030-40F8-B1C2-5C838125F1B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89FE5932-0030-40F8-B1C2-5C838125F1B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89FE5932-0030-40F8-B1C2-5C838125F1B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
