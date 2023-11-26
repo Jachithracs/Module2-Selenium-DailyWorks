@@ -31,8 +31,10 @@ namespace Naaptol.TestScripts
             foreach (var excelData in excelDataList)
             {
                 string? searchtext = excelData?.SearchText;
+                string? quantity = excelData?.Quantity;
 
                 Console.WriteLine($"Search Text : {searchtext}");
+                Console.WriteLine($"Quantity : {quantity}");
 
 
                 homePage.SearchClick(searchtext);

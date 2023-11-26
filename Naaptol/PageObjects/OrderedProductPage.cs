@@ -16,7 +16,7 @@ namespace Naaptol.PageObjects
             this.driver = driver ?? throw new ArgumentException(nameof(driver));
             PageFactory.InitElements(driver, this);
         }
-        [FindsBy(How = How.LinkText, Using = "Brown-2.00")]
+        [FindsBy(How = How.XPath, Using = "//a[text()='Brown-2.00']")]
         public IWebElement? SizeOfProductLink { get; set; }
 
         [FindsBy(How = How.Id, Using = "cart-panel-button-0")]

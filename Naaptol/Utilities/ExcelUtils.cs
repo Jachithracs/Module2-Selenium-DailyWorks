@@ -35,8 +35,8 @@ namespace Naaptol.Utilities
                         {
                             ExcelData excelData = new ExcelData
                             {
-                                SearchText = GetValueOrDefault(row, "search"),
-                                Quantity = GetValueOrDefault(row, "qty"),
+                                SearchText = GetValueOrDefault(row, "searchtext"),
+                                Quantity = GetValueOrDefault(row, "quantity"),
                                 
                             };
 
