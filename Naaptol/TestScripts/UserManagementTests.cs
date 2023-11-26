@@ -22,6 +22,20 @@ namespace Naaptol.TestScripts
             {
                 driver.Navigate().GoToUrl("https://www.naaptol.com/");
             }
+
+            try
+            {
+                Assert.That(driver.Url.Contains("naaptol"));
+                test = extent.CreateTest("Naaptol Eyewear Product");
+                test.Pass(" Naaptol Eyewear Product success");
+
+            }
+            catch (AssertionException)
+            {
+                test = extent.CreateTest("Naaptol Eyewear Product Test");
+                test.Fail("Naaptol Eyewear Product Search failed");
+
+            }
             string? currDir = Directory.GetParent(@"../../../")?.FullName;
             string? excelFilePath = currDir + "/TestData/InputData.xlsx";
             string? sheetName = "NaaptolSearch";
@@ -38,17 +52,24 @@ namespace Naaptol.TestScripts
 
 
                 homePage.SearchClick(searchtext);
+                Thread.Sleep(1000);
+                TakeScreenShot();
 
                 var resultProduct = new ProductLists(driver);
                 resultProduct.ClickProduct();
+                Thread.Sleep(1000);
+                TakeScreenShot();
 
                 List<string> nextwindow = driver.WindowHandles.ToList();
                 driver.SwitchTo().Window(nextwindow[1]);
 
                 var buyPrdt = new OrderedProductPage(driver);
                 buyPrdt.SizeSelection();
+                Thread.Sleep(1000);
+                TakeScreenShot();
 
                 buyPrdt.ClickBuyBtn();
+                TakeScreenShot();
 
 
             }
