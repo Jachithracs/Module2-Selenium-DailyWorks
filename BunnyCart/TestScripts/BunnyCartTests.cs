@@ -18,7 +18,8 @@ namespace BunnyCart.TestScripts
         public void SignUpTest()
         {
             string currdir = Directory.GetParent(@"../../../").FullName;
-            string logfilepath = currdir + "/Logs/log_" + DateTime.Now.ToString("yyyymmdd_HHmmss") + ".txt";
+            string logfilepath = currdir + "/Logs/log_" + DateTime.Now.ToString
+                ("yyyymmdd_HHmmss") + ".txt";
 
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.Console()
@@ -85,6 +86,7 @@ namespace BunnyCart.TestScripts
                 // Assert.That(""."")
 
             }
+            Log.CloseAndFlush();
 
         }
         //try
