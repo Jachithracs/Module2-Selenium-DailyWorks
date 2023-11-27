@@ -35,11 +35,12 @@ namespace BunnyCart.TestScripts
 
             try
             {
-                Assert.That(driver?.FindElement(By.XPath("//div[" +
-                    "@class='modal-inner-wrap']//following::h1[2]")).Text ==
-                   "Create an Account",$"Test failed for Create Account");
-
+                Assert.True(driver?.FindElement(By.XPath("//div[" +
+                    "@class='modal-inner-wrap']//following::h1[2]")).Text
+                    == "Create an Account", $"Test failed for Create Account");
                 Log.Information("Test passed for Create Account");
+
+                
 
                 test = extent.CreateTest("Create Account Link Test");
                 test.Pass("Create Account Link success");
@@ -56,8 +57,10 @@ namespace BunnyCart.TestScripts
 
 
             Assert.That(driver?.FindElement(By.XPath("//div[" +
-                 "@class='modal-inner-wrap']//following::h1[2]")).Text,
-                 Is.EqualTo("Create an Account"));
+                "@class='modal-inner-wrap']//following::h1[2]")).Text,
+                Is.EqualTo("Create an Account"));
+
+
 
             string? currDir = Directory.GetParent(@"../../../")?.FullName;
             string? excelFilePath = currDir + "/TestData/InputData.xlsx";
