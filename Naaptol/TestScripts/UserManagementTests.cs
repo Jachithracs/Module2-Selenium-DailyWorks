@@ -52,12 +52,12 @@ namespace Naaptol.TestScripts
 
 
                 homePage.SearchClick(searchtext);
-                Thread.Sleep(1000);
+                Thread.Sleep(3000);
                 TakeScreenShot();
 
                 var resultProduct = new ProductLists(driver);
                 resultProduct.ClickProduct();
-                Thread.Sleep(1000);
+                Thread.Sleep(3000);
                 TakeScreenShot();
 
                 List<string> nextwindow = driver.WindowHandles.ToList();
@@ -65,10 +65,11 @@ namespace Naaptol.TestScripts
 
                 var buyPrdt = new OrderedProductPage(driver);
                 buyPrdt.SizeSelection();
-                Thread.Sleep(1000);
+                Thread.Sleep(3000);
                 TakeScreenShot();
 
                 buyPrdt.ClickBuyBtn();
+                Thread.Sleep(3000);
                 TakeScreenShot();
 
 

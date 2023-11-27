@@ -1,6 +1,7 @@
 ﻿using BunnyCart.PageObjects;
 using BunnyCart.Utilities;
 using OpenQA.Selenium;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,21 +17,38 @@ namespace BunnyCart.TestScripts
         [Test]
         public void SignUpTest()
         {
+            string currdir = Directory.GetParent(@"../../../").FullName;
+            string logfilepath = currdir + "/Logs/log_" + DateTime.Now.ToString("yyyymmdd_HHmmss") + ".txt";
+
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()
+                .WriteTo.File(logfilepath, rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+            
+            
+
             BunnyCartHomePage bunnyCartHomePage = new BunnyCartHomePage(driver);
+            Log.Information("Create Account Test Started");
             bunnyCartHomePage.ClickCreateAccountLink();
+            Log.Information("Create Account Test Clicked");
             Thread.Sleep(1000);
 
             try
             {
                 Assert.That(driver?.FindElement(By.XPath("//div[" +
-                    "@class='modal-inner-wrap']//following::h1[2]")).Text,
-                    Is.EqualTo("Create an Account"));
+                    "@class='modal-inner-wrap']//following::h1[2]")).Text ==
+                   "Create an Account",$"Test failed for Create Account");
+
+                Log.Information("Test passed for Create Account");
+
                 test = extent.CreateTest("Create Account Link Test");
                 test.Pass("Create Account Link success");
 
             }
-            catch (AssertionException)
+            catch (AssertionException ex)
             {
+                Log.Error($"Test failed for Create Account. \n Exception : {ex.Message}");
+
                 test = extent.CreateTest("Create Account Link Test");
                 test.Fail("Create Account Link failed");
 
